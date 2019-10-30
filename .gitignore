@@ -7,3 +7,8 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+
+CollisionGen/.vs/CollisionGen/v16/
+
+CollisionGen/.vs/
+CollisionGen/out/
