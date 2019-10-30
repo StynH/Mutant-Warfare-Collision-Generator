@@ -103,7 +103,7 @@ void drawColliders(){
 
 int main(int argc, char** argv)
 {
-	if(argc < 1)
+	if(argc < 2)
 	{
 		std::cout << "Map file is required, drag and drop desired map file into .exe";
 		auto c = std::getchar();
