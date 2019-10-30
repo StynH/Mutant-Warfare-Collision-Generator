@@ -116,7 +116,25 @@ int main(int argc, char** argv)
 	std::ifstream in(fileName);
 	in >> root;
 
-	const auto terrainLayer = root["layers"][0];
+	Json::Value terrainLayer;
+	bool found = false;
+	for (auto it = root["layers"].begin(); it != root["layers"].end(); ++it)
+	{
+		if ((*it)["name"] == "terrain" || (*it)["name"] == "Terrain")
+		{
+			terrainLayer = (*it);
+			found = true;
+			break;
+		}
+	}
+
+	if(!found)
+	{
+		std::cout << "No layer named 'terrain' or 'Terrain' found, make sure it exists." << std::endl;
+		auto c = std::getchar();
+		return EXIT_FAILURE;
+	}
+	
 	const auto data = terrainLayer["data"];
 	const auto row = terrainLayer["height"].asInt();
 	const auto col = terrainLayer["width"].asInt();
